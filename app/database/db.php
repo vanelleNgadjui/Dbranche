@@ -22,10 +22,27 @@ function selectAll($table, $conditions = [])
         return $records;
     } else {
         // return records that match conditions ...
+        // $sql = "SELECT * FROM $table WHERE username='Awa' AND admin=1";
+
+        $i = 0;
+        foreach ($conditions as $key => $value) {
+            if ($i === 0) {
+                $sql = $sql . " WHERE $key=$value";
+            } else {
+                $sql = $sql . " AND $key=$value";
+            }
+            $i++;
+        }
+        dd($sql);
+
     }
     
 }
 
+$conditions = [
+    'admin' => 1,
+    'username' => 'Awa'
+];
 
-$users = selectAll('users');
+$users = selectAll('users', $conditions);
 dd($users);
