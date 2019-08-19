@@ -11,6 +11,18 @@ function dd($value) // to be deleted
 }
 
 
+function executeQuery($sql, $data)
+{
+    global $conn;
+    $stmt = $conn->prepare($sql);
+    $values = array_values($data);
+    $types = str_repeat('s', count($values));
+    $stmt->bind_param($types, ...$values);
+    $stmt->execute();
+    return $stmt;
+}
+
+
 function selectAll($table, $conditions = [])
 {
     global $conn;
@@ -31,11 +43,7 @@ function selectAll($table, $conditions = [])
             $i++;
         }
         
-        $stmt = $conn->prepare($sql);
-        $values = array_values($conditions);
-        $types = str_repeat('s', count($values));
-        $stmt->bind_param($types, ...$values);
-        $stmt->execute();
+        $stmt = executeQuery($sql, $conditions);
         $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         return $records;
     }
@@ -58,11 +66,7 @@ function selectOne($table, $conditions)
     }
 
     $sql = $sql . " LIMIT 1";
-    $stmt = $conn->prepare($sql);
-    $values = array_values($conditions);
-    $types = str_repeat('s', count($values));
-    $stmt->bind_param($types, ...$values);
-    $stmt->execute();
+    $stmt = executeQuery($sql, $conditions);
     $records = $stmt->get_result()->fetch_assoc();
     return $records;
 }
