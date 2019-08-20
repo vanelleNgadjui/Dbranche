@@ -72,6 +72,13 @@ function selectOne($table, $conditions)
 }
 
 
+function create($table, $data)
+{
+    global $conn;
+    // $sql = "INSERT INTO users SET username=?, admin=?, email=?, password=?"
+    
+}
+
 $conditions = [
     'admin' => 0,
     'username' => 'Awa'
