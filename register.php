@@ -31,9 +31,16 @@
     <form action="register.php" method="post">
       <h2 class="form-title">Register</h2>
 
-      <!-- <div class="msg error">
-        <li>Username required</li>
-      </div> -->
+
+      <?php if(count($errors) > 0): ?>
+          <div class="msg error">
+            <?php foreach ($errors as $error): ?>
+              <li><?php echo $error; ?></li>
+            <?php endforeach; ?>
+          </div>
+      <?php endif; ?>
+      
+
 
       <div>
         <label>Username</label>
