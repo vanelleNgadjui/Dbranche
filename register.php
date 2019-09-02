@@ -31,16 +31,7 @@
     <form action="register.php" method="post">
       <h2 class="form-title">Register</h2>
 
-
-      <?php if(count($errors) > 0): ?>
-          <div class="msg error">
-            <?php foreach ($errors as $error): ?>
-              <li><?php echo $error; ?></li>
-            <?php endforeach; ?>
-          </div>
-      <?php endif; ?>
-      
-
+      <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
 
       <div>
         <label>Username</label>
