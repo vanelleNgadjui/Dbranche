@@ -1,15 +1,31 @@
 <?php
 
 include(ROOT_PATH . "/app/database/db.php");
+include(ROOT_PATH . "/app/helpers/validateUser.php");
+
+$username = '';
+$email = '';
+$password = '';
+$passwordConf = '';
 
 if (isset($_POST['register-btn'])) {
-    unset($_POST['register-btn'], $_POST['passwordConf']);
-    $_POST['admin'] = 0;
+    $errors = validateUser($_POST);
 
-    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-    $user_id = create('users', $_POST);
-    $user = selectOne('users', ['id' => $user_id]);
+    if (count($errors) === 0) {
+        unset($_POST['register-btn'], $_POST['passwordConf']);
+        $_POST['admin'] = 0;
     
-    dd($user);
+        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    
+        $user_id = create('users', $_POST);
+        $user = selectOne('users', ['id' => $user_id]);
+        
+        dd($user);
+    } else {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $passwordConf = $_POST['passwordConf'];
+    }
+    
 }
