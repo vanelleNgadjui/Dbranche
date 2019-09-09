@@ -27,6 +27,9 @@ include(ROOT_PATH . "/app/database/db.php");
 <body>
 
   <?php include(ROOT_PATH . "/app/includes/header.php"); ?>
+  <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
+
+
 
   <!-- Page Wrapper -->
   <div class="page-wrapper">
