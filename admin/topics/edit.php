@@ -1,4 +1,5 @@
 <?php include("../../path.php"); ?>
+<?php include(ROOT_PATH . "/app/controllers/topics.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,11 +52,11 @@
                     <form action="create.html" method="post">
                         <div>
                             <label>Name</label>
-                            <input type="text" name="name" class="text-input">
+                            <input type="text" name="name" value="<?php echo $name; ?>" class="text-input">
                         </div>
                         <div>
                             <label>Description</label>
-                            <textarea name="description" id="body"></textarea>
+                            <textarea name="description" id="body"><?php echo $description; ?></textarea>
                         </div>
 
                         <div>
