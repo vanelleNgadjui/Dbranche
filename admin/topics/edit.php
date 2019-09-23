@@ -49,7 +49,8 @@
 
                     <h2 class="page-title">Edit Topic</h2>
 
-                    <form action="create.html" method="post">
+                    <form action="edit.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>" >
                         <div>
                             <label>Name</label>
                             <input type="text" name="name" value="<?php echo $name; ?>" class="text-input">
@@ -60,7 +61,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="btn btn-big">Update Topic</button>
+                            <button type="submit" name="update-topic" class="btn btn-big">Update Topic</button>
                         </div>
                     </form>
 
