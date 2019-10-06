@@ -64,10 +64,10 @@
                         </div>
                         <div>
                             <label>Topic</label>
-                            <select name="topic" class="text-input">
+                            <select name="topic_id" class="text-input">
                                 <option value=""></option>
                                 <?php foreach ($topics as $key => $topic): ?>
-                                    <option value="<?php echo $topic['name'] ?>"><?php echo $topic['name'] ?></option>
+                                    <option value="<?php echo $topic['id'] ?>"><?php echo $topic['name'] ?></option>
                                 <?php endforeach; ?>
 
                             </select>
