@@ -3,9 +3,12 @@
 include(ROOT_PATH . "/app/database/db.php");
 include(ROOT_PATH . "/app/helpers/validatePost.php");
 
-$topics = selectAll('topics');
-
 $table = 'posts';
+
+$topics = selectAll('topics');
+$posts = selectAll($table);
+
+
 $errors = array();
 
 
@@ -16,5 +19,5 @@ if (isset($_POST['add-post'])) {
 
 
     $post_id = create($table, $_POST);
-    dd($post_id);
+    header("location: " . BASE_URL . "/admin/posts/index.php");
 }
