@@ -80,6 +80,12 @@
                             </select>
                         </div>
                         <div>
+                            <label>
+                                <input type="checkbox" name="published">
+                                Publish
+                            </label>
+                        </div>
+                        <div>
                             <button type="submit" name="add-post" class="btn btn-big">Add Post</button>
                         </div>
                     </form>
