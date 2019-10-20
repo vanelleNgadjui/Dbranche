@@ -49,6 +49,8 @@
 
                     <h2 class="page-title">Manage Posts</h2>
 
+                    <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
+
                     <table>
                         <thead>
                             <th>SN</th>
