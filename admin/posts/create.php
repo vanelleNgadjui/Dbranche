@@ -80,10 +80,19 @@
                             </select>
                         </div>
                         <div>
-                            <label>
-                                <input type="checkbox" name="published">
-                                Publish
-                            </label>
+                            <?php if (empty($published)): ?>
+                                <label>
+                                    <input type="checkbox" name="published">
+                                    Publish
+                                </label>
+                            <?php else: ?>
+                                <label>
+                                    <input type="checkbox" name="published" checked>
+                                    Publish
+                                </label>
+                            <?php endif; ?>
+                           
+
                         </div>
                         <div>
                             <button type="submit" name="add-post" class="btn btn-big">Add Post</button>
