@@ -51,7 +51,7 @@
 
                     <?php include(ROOT_PATH . '/app/helpers/formErrors.php'); ?>
 
-                    <form action="create.php" method="post">
+                    <form action="create.php" method="post" enctype="multipart/form-data">
                         <div>
                             <label>Title</label>
                             <input type="text" name="title" value="<?php echo $title ?>" class="text-input">
