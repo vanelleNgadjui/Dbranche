@@ -10,10 +10,21 @@ $posts = selectAll($table);
 
 
 $errors = array();
+$id = "";
 $title = "";
 $body = "";
 $topic_id = "";
 $published = "";
+
+if (isset($_GET['id'])) {
+    $post = selectOne($table, ['id' => $_GET['id']]);
+
+    $id = $post['id'];
+    $title = $post['title'];
+    $body = $post['body'];
+    $topic_id = $post['topic_id'];
+    $published = $post['published'];
+}
 
 if (isset($_POST['add-post'])) {
     $errors = validatePost($_POST);
