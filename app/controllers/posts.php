@@ -26,6 +26,18 @@ if (isset($_GET['id'])) {
     $published = $post['published'];
 }
 
+
+
+if (isset($_GET['delete_id'])) {
+    $count = delete($table, $_GET['delete_id']);
+    $_SESSION['message'] = "Post deleted successfully";
+    $_SESSION['type'] = "success";
+    header("location: " . BASE_URL . "/admin/posts/index.php"); 
+    exit();
+}
+
+
+
 if (isset($_POST['add-post'])) {
     $errors = validatePost($_POST);
 
@@ -52,7 +64,8 @@ if (isset($_POST['add-post'])) {
         $post_id = create($table, $_POST);
         $_SESSION['message'] = "Post created successfully";
         $_SESSION['type'] = "success";
-        header("location: " . BASE_URL . "/admin/posts/index.php");       
+        header("location: " . BASE_URL . "/admin/posts/index.php"); 
+        exit();    
     } else {
         $title = $_POST['title'];
         $body = $_POST['body'];
