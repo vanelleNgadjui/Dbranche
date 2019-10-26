@@ -76,3 +76,11 @@ if (isset($_POST['login-btn'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 }
+
+if (isset($_GET['delete_id'])) {
+    $count = delete($table, $_GET['delete_id']);
+    $_SESSION['message'] = 'Admin user deleted';
+    $_SESSION['type'] = 'success';
+    header('location: ' . BASE_URL . '/admin/users/index.php'); 
+    exit();
+}

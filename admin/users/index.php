@@ -62,7 +62,7 @@
                                     <td><?php echo $user['username']; ?></td>
                                     <td><?php echo $user['email']; ?></td>
                                     <td><a href="#" class="edit">edit</a></td>
-                                    <td><a href="#" class="delete">delete</a></td>
+                                    <td><a href="index.php?delete_id=<?php echo $user['id']; ?>" class="delete">delete</a></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
