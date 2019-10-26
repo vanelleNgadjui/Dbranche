@@ -10,6 +10,7 @@ $admin_users = selectAll($table, ['admin' => 1]);
 
 $errors = array();
 $username = '';
+$admin = '';
 $email = '';
 $password = '';
 $passwordConf = '';
@@ -53,6 +54,7 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
         }
     } else {
         $username = $_POST['username'];
+        $admin = isset($_POST['admin']) ? 1 : 0;
         $email = $_POST['email'];
         $password = $_POST['password'];
         $passwordConf = $_POST['passwordConf'];
