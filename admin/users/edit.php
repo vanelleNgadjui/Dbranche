@@ -49,8 +49,9 @@
 
                     <h2 class="page-title">Edit User</h2>
 
-                    <form action="create.html" method="post">
-                    <div>
+                    <form action="edit.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $id; ?>" >
+                        <div>
                             <label>Username</label>
                             <input type="text" name="username" value="<?php echo $username; ?>" class="text-input">
                         </div>
@@ -82,7 +83,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="btn btn-big">Update User</button>
+                            <button type="submit" name="update-user" class="btn btn-big">Update User</button>
                         </div>
                     </form>
 

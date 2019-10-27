@@ -9,6 +9,7 @@ $table = 'users';
 $admin_users = selectAll($table, ['admin' => 1]);
 
 $errors = array();
+$id = '';
 $username = '';
 $admin = '';
 $email = '';
@@ -61,10 +62,15 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
     }
 }
 
+if (isset($_POST['update-user'])) {
+    dd($_POST);
+}
+
 
 if (isset($_GET['id'])) {
     $user = selectOne($table, ['id' => $_GET['id']]);
     
+    $id = $user['id'];
     $username = $user['username'];
     $admin = isset($user['admin']) ? 1 : 0;
     $email = $user['email'];
