@@ -62,6 +62,15 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
 }
 
 
+if (isset($_GET['id'])) {
+    $user = selectOne($table, ['id' => $_GET['id']]);
+    
+    $username = $user['username'];
+    $admin = isset($user['admin']) ? 1 : 0;
+    $email = $user['email'];
+}
+
+
 if (isset($_POST['login-btn'])) {
     $errors = validateLogin($_POST);
 

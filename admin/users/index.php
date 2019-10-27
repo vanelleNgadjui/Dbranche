@@ -61,7 +61,7 @@
                                     <td><?php echo $key + 1; ?></td>
                                     <td><?php echo $user['username']; ?></td>
                                     <td><?php echo $user['email']; ?></td>
-                                    <td><a href="#" class="edit">edit</a></td>
+                                    <td><a href="edit.php?id=<?php echo $user['id']; ?>" class="edit">edit</a></td>
                                     <td><a href="index.php?delete_id=<?php echo $user['id']; ?>" class="delete">delete</a></td>
                                 </tr>
                             <?php endforeach; ?>
