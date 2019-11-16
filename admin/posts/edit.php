@@ -49,6 +49,8 @@
 
                     <h2 class="page-title">Edit Post</h2>
 
+                    <?php include(ROOT_PATH . "/app/helpers/formErrors.php"); ?>
+
                     <form action="edit.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
                         <div>
