@@ -2,8 +2,7 @@
 include("path.php");
 include(ROOT_PATH . "/app/controllers/topics.php");
 
-$posts = selectAll('posts', ['published' => 1]);
-
+$posts = getPublishedPosts();
 
 ?>
 <!DOCTYPE html>
@@ -50,7 +49,7 @@ $posts = selectAll('posts', ['published' => 1]);
             <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image">
             <div class="post-info">
               <h4><a href="single.html"><?php echo $post['title']; ?></a></h4>
-              <i class="far fa-user"> Awa Melvine</i>
+              <i class="far fa-user"> <?php echo $post['username']; ?></i>
               &nbsp;
               <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
             </div>
@@ -75,7 +74,7 @@ $posts = selectAll('posts', ['published' => 1]);
             <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image">
             <div class="post-preview">
               <h2><a href="single.hmtl"><?php echo $post['title']; ?></a></h2>
-              <i class="far fa-user"> Awa Melvine</i>
+              <i class="far fa-user"> <?php echo $post['username']; ?></i>
               &nbsp;
               <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
               <p class="preview-text">
