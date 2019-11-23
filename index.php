@@ -2,7 +2,16 @@
 include("path.php");
 include(ROOT_PATH . "/app/controllers/topics.php");
 
-$posts = getPublishedPosts();
+$posts = array();
+$postsTitle = 'Recent Posts';
+
+
+if (isset($_POST['search-term'])) {
+  $postsTitle = "You searched for '" . $_POST['search-term'] . "'";
+  $posts = searchPosts($_POST['search-term']);
+} else {
+  $posts = getPublishedPosts();
+}
 
 ?>
 <!DOCTYPE html>
@@ -67,7 +76,7 @@ $posts = getPublishedPosts();
 
       <!-- Main Content -->
       <div class="main-content">
-        <h1 class="recent-post-title">Recent Posts</h1>
+        <h1 class="recent-post-title"><?php echo $postsTitle ?></h1>
 
         <?php foreach ($posts as $post): ?>
           <div class="post clearfix">
@@ -94,7 +103,7 @@ $posts = getPublishedPosts();
 
         <div class="section search">
           <h2 class="section-title">Search</h2>
-          <form action="index.html" method="post">
+          <form action="index.php" method="post">
             <input type="text" name="search-term" class="text-input" placeholder="Search...">
           </form>
         </div>
