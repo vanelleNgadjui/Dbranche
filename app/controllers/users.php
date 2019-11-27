@@ -94,7 +94,7 @@ if (isset($_GET['id'])) {
     
     $id = $user['id'];
     $username = $user['username'];
-    $admin = isset($user['admin']) ? 1 : 0;
+    $admin = $user['admin'];
     $email = $user['email'];
 }
 
