@@ -5,8 +5,10 @@ include(ROOT_PATH . "/app/controllers/topics.php");
 $posts = array();
 $postsTitle = 'Recent Posts';
 
-
-if (isset($_POST['search-term'])) {
+if (isset($_GET['t_id'])) {
+  $posts = getPostsByTopicId($_GET['t_id']);
+  $postsTitle = "You searched for posts under '" . $_GET['name'] . "'";
+} else if (isset($_POST['search-term'])) {
   $postsTitle = "You searched for '" . $_POST['search-term'] . "'";
   $posts = searchPosts($_POST['search-term']);
 } else {
@@ -113,7 +115,7 @@ if (isset($_POST['search-term'])) {
           <h2 class="section-title">Topics</h2>
           <ul>
             <?php foreach ($topics as $key => $topic): ?>
-              <li><a href="<?php echo BASE_URL . '/index.php?t_id=' . $topic['id'] ?>"><?php echo $topic['name']; ?></a></li>
+              <li><a href="<?php echo BASE_URL . '/index.php?t_id=' . $topic['id'] . '&name=' . $topic['name'] ?>"><?php echo $topic['name']; ?></a></li>
             <?php endforeach; ?>
           </ul>
         </div>
