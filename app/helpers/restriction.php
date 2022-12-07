@@ -1,6 +1,6 @@
 <?php
 
-
+// fonction pour utilisateur uniquement
 function usersOnly($redirect = '/index.php')
 {
     if (empty($_SESSION['id'])) {
@@ -11,6 +11,8 @@ function usersOnly($redirect = '/index.php')
     }
 }
 
+
+// fonction pour administrateur uniquement
 function adminOnly($redirect = '/index.php')
 {
     if (empty($_SESSION['id']) || empty($_SESSION['admin'])) {
@@ -21,6 +23,7 @@ function adminOnly($redirect = '/index.php')
     }
 }
 
+// fonction pour invité ou visiteur du site uniquement
 function guestsOnly($redirect = '/index.php')
 {
     if (isset($_SESSION['id'])) {

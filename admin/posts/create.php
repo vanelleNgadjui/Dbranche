@@ -3,30 +3,23 @@
 adminOnly();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous">
-
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Candal|Lora"
             rel="stylesheet">
 
-        <!-- Custom Styling -->
+        <!-- style -->
         <link rel="stylesheet" href="../../assets/css/style.css">
 
-        <!-- Admin Styling -->
+        <!-- style admin -->
         <link rel="stylesheet" href="../../assets/css/admin.css">
 
-        <title>Admin Section - Add Post</title>
+        <title>Admin Section - Ajouter post</title>
     </head>
 
     <body>
@@ -42,24 +35,24 @@ adminOnly();
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
-                    <a href="create.php" class="btn btn-big">Add Post</a>
-                    <a href="index.php" class="btn btn-big">Manage Posts</a>
+                    <a href="create.php" class="btn btn-big">Ajouter posts</a>
+                    <a href="index.php" class="btn btn-big">Gerer Posts</a>
                 </div>
 
 
                 <div class="content">
 
-                    <h2 class="page-title">Add Post</h2>
+                    <h2 class="page-title">Ajouter posts</h2>
 
                     <?php include(ROOT_PATH . '/app/helpers/formErrors.php'); ?>
 
                     <form action="create.php" method="post" enctype="multipart/form-data">
                         <div>
-                            <label>Title</label>
+                            <label>Titre</label>
                             <input type="text" name="title" value="<?php echo $title ?>" class="text-input">
                         </div>
                         <div>
-                            <label>Body</label>
+                            <label>Contenu</label>
                             <textarea name="body" id="body"><?php echo $body ?></textarea>
                         </div>
                         <div>
@@ -85,19 +78,19 @@ adminOnly();
                             <?php if (empty($published)): ?>
                                 <label>
                                     <input type="checkbox" name="published">
-                                    Publish
+                                    Publier
                                 </label>
                             <?php else: ?>
                                 <label>
                                     <input type="checkbox" name="published" checked>
-                                    Publish
+                                    Publier
                                 </label>
                             <?php endif; ?>
                            
 
                         </div>
                         <div>
-                            <button type="submit" name="add-post" class="btn btn-big">Add Post</button>
+                            <button type="submit" name="add-post" class="btn btn-big">Ajouter post</button>
                         </div>
                     </form>
 

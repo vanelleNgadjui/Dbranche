@@ -5,19 +5,19 @@ function validateUser($user)
     $errors = array();
 
     if (empty($user['username'])) {
-        array_push($errors, 'Username is required');
+        array_push($errors, 'besoin de nom utilisateur');
     }
 
     if (empty($user['email'])) {
-        array_push($errors, 'Email is required');
+        array_push($errors, 'Adresse mail requis ');
     }
 
     if (empty($user['password'])) {
-        array_push($errors, 'Password is required');
+        array_push($errors, 'entrez un mot de passe');
     }
 
     if ($user['passwordConf'] !== $user['password']) {
-        array_push($errors, 'Password do not match');
+        array_push($errors, 'le mot de passe ne match pas');
     }
 
     // $existingUser = selectOne('users', ['email' => $user['email']]);
@@ -32,7 +32,7 @@ function validateUser($user)
         }
 
         if (isset($user['create-admin'])) {
-            array_push($errors, 'Email already exists');
+            array_push($errors, 'Email déja utilsé');
         }
     }
 
@@ -45,11 +45,11 @@ function validateLogin($user)
     $errors = array();
 
     if (empty($user['username'])) {
-        array_push($errors, 'Username is required');
+        array_push($errors, 'nom utilisateur requis');
     }
 
     if (empty($user['password'])) {
-        array_push($errors, 'Password is required');
+        array_push($errors, 'mot de passe requis');
     }
 
     return $errors;

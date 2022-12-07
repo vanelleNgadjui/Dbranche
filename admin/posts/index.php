@@ -3,7 +3,7 @@
 adminOnly();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
     <head>
         <meta charset="UTF-8">
@@ -20,13 +20,13 @@ adminOnly();
         <link href="https://fonts.googleapis.com/css?family=Candal|Lora"
             rel="stylesheet">
 
-        <!-- Custom Styling -->
+        <!-- style -->
         <link rel="stylesheet" href="../../assets/css/style.css">
 
-        <!-- Admin Styling -->
+        <!-- style Admin -->
         <link rel="stylesheet" href="../../assets/css/admin.css">
 
-        <title>Admin Section - Manage Posts</title>
+        <title>Admin Section - Gerer posts</title>
     </head>
 
     <body>
@@ -42,22 +42,22 @@ adminOnly();
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
-                    <a href="create.php" class="btn btn-big">Add Post</a>
-                    <a href="index.php" class="btn btn-big">Manage Posts</a>
+                    <a href="create.php" class="btn btn-big">Ajouter posts</a>
+                    <a href="index.php" class="btn btn-big">Gerer Posts</a>
                 </div>
 
 
                 <div class="content">
 
-                    <h2 class="page-title">Manage Posts</h2>
+                    <h2 class="page-title">Gerer Posts</h2>
 
                     <?php include(ROOT_PATH . "/app/includes/messages.php"); ?>
 
                     <table>
                         <thead>
                             <th>SN</th>
-                            <th>Title</th>
-                            <th>Author</th>
+                            <th>Titre</th>
+                            <th>Auteur</th>
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
@@ -65,14 +65,14 @@ adminOnly();
                                 <tr>
                                     <td><?php echo $key + 1; ?></td>
                                     <td><?php echo $post['title'] ?></td>
-                                    <td>Awa</td>
-                                    <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">edit</a></td>
-                                    <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">delete</a></td>
+                                    <td>Vanelle</td>
+                                    <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">editer</a></td>
+                                    <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">supprimer</a></td>
 
                                     <?php if ($post['published']): ?>
-                                        <td><a href="edit.php?published=0&p_id=<?php echo $post['id'] ?>" class="unpublish">unpublish</a></td>
+                                        <td><a href="edit.php?published=0&p_id=<?php echo $post['id'] ?>" class="unpublish">dépublier</a></td>
                                     <?php else: ?>
-                                        <td><a href="edit.php?published=1&p_id=<?php echo $post['id'] ?>" class="publish">publish</a></td>
+                                        <td><a href="edit.php?published=1&p_id=<?php echo $post['id'] ?>" class="publish">publier</a></td>
                                     <?php endif; ?>
                                     
                                 </tr>

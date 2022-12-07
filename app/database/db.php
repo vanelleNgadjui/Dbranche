@@ -3,15 +3,16 @@
 session_start();
 require('connect.php');
 
+class Db extends Connect{
+    public function __construct() {}
 
-
-function dd($value) // to be deleted
+function dd($value) // a supprimer
 {
     echo "<pre>", print_r($value, true), "</pre>";
     die();
 }
 
-
+// pre^parer et executer les requettes sql
 function executeQuery($sql, $data)
 {
     global $conn;
@@ -23,13 +24,13 @@ function executeQuery($sql, $data)
     return $stmt;
 }
 
-
+// fonction pour selectionner tous les éléments d'une table
 function selectAll($table, $conditions = [])
 {
     global $conn;
     $sql = "SELECT * FROM $table";
     if (empty($conditions)) {
-        $stmt = $conn->prepare($sql);
+        $stmt = self::$conn->prepare($sql);
         $stmt->execute();
         $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         return $records;
@@ -50,7 +51,7 @@ function selectAll($table, $conditions = [])
     }
 }
 
-
+// fonction pour selectionner un seul élément d'une table
 function selectOne($table, $conditions)
 {
     global $conn;
@@ -72,7 +73,7 @@ function selectOne($table, $conditions)
     return $records;
 }
 
-
+// fonction pour créer inserer les élement dans une table
 function create($table, $data)
 {
     global $conn;
@@ -94,7 +95,7 @@ function create($table, $data)
 }
 
 
-
+// fonction pour modifier les éléments d'une table
 function update($table, $id, $data)
 {
     global $conn;
@@ -117,7 +118,7 @@ function update($table, $id, $data)
 }
 
 
-
+// fonction pour supprimer les éléments d'une table
 function delete($table, $id)
 {
     global $conn;
@@ -127,7 +128,7 @@ function delete($table, $id)
     return $stmt->affected_rows;
 }
 
-
+// fonction pour publier un post
 function getPublishedPosts()
 {
     global $conn;
@@ -138,7 +139,7 @@ function getPublishedPosts()
     return $records;
 }
 
-
+// fonction pour recuperer un post PUBLIE par categorie
 function getPostsByTopicId($topic_id)
 {
     global $conn;
@@ -150,7 +151,7 @@ function getPostsByTopicId($topic_id)
 }
 
 
-
+// fonction pour rechercher les éléments dans la base de donnée
 function searchPosts($term)
 {
     $match = '%' . $term . '%';
@@ -167,4 +168,6 @@ function searchPosts($term)
     $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body' => $match]);
     $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     return $records;
+}
+    
 }

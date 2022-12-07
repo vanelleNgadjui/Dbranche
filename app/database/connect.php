@@ -1,12 +1,17 @@
 <?php
 
-$host = 'localhost';
+$host = 'localhost:8080';
 $user = 'root';
-$pass = 'root';
-$db_name = 'blog';
+$pass = ' ';
+$db_name = 'dbranche';
 
-$conn = new MySQLi($host, $user, $pass, $db_name);
+// self::$_bdd = new PDO('mysql:host=localhost:8080;dbname=dbranche;charset=utf8', 'root', '');
+// $conn = new MySQLi($host,$db_name, $user, $pass);
+try {
+    self::$conn = new PDO('mysql:host=localhost:8080;dbname=dbranche;charset=utf8', 'root', '');
+    // C'est ainsi que nous pouvons définir plusieurs attributs
+} catch(PDOException $e) {
+    // die("Connexion a la base de donnée echoué: " . $e->getMessage());
+    die("Connexion a la base de donnée echoué: " . $e->getMessage());
+ }
 
-if ($conn->connect_error) {
-    die('Database connection error: ' . $conn->connect_error);
-}
